@@ -43,24 +43,54 @@
     
     ];
 
-    for ($i = 0; $i < count($hotels); $i++){
-        $hotel = $hotels[$i];
-
-        var_dump($hotel['name']);
-        var_dump($hotel['description']);
-        var_dump($hotel['parking']);
-        var_dump($hotel['vote']);
-        var_dump($hotel['distance_to_center']);
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome Hotel</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Parcheggio?</th>
+                <th scope="col">Valutazione</th>
+                <th scope="col">Distanza Dal Centro</th>
+            </tr>
+        </thead>
+
+        <?php 
+            for ($i = 0; $i < count($hotels); $i++){
+                $hotel = $hotels[$i];
+
+                $name = $hotel['name'];
+                $desc = $hotel['description'];
+                $parking = $hotel['parking'];
+                $vote = $hotel['vote'];
+                $zone = $hotel['distance_to_center'];
+        ?>
+
+        <tbody>
+            <tr>
+                <td><?php echo $name ?></td>
+                <td><?php echo $desc ?></td>
+                <td><?php echo $parking ?></td>
+                <td><?php echo $vote ?></td>
+                <td><?php echo $zone ?></td>
+            </tr>
+        </tbody>
+
+        <?php
+        }
+        ?>
+
+    </table>
+
 </body>
 </html>
